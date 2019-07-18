@@ -22,4 +22,6 @@ public interface IArticleRepository{
     List<Article> findById(String id);
 
     PageResult<Article> queryPageList(PageRequestVo pageRequest);
+
+    List<Article> findByTag(String tag);
 }

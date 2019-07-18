@@ -82,4 +82,12 @@ public class ArticleRepository implements IArticleRepository {
         });
         return PageResult.newBuilder().data(page.getContent()).pageNo(page.getNumber()).pageTotalSize(page.getTotalPages()).build();
     }
+
+    @Override
+    public List<Article> findByTag(String tag) {
+        Query query = Query.query(Criteria.where(FieldName.TAGS).in(tag));
+        return mongoTemplate.find(query,Article.class);
+    }
+
+
 }

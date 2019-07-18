@@ -71,7 +71,7 @@ public class ArticleController {
         return articleRepository.updateArticle(article);
     }
 
-    @RequestMapping(value = "queryById")
+    @RequestMapping(value = "/queryById")
     @ResponseBody
     public List<Article> queryById(String id){
         return articleRepository.findById(id);
@@ -81,5 +81,11 @@ public class ArticleController {
     @ResponseBody
     public PageResult<Article> queryPageList(@RequestBody  PageRequestVo pageRequest){
         return articleRepository.queryPageList(pageRequest);
+    }
+
+    @RequestMapping(value = "/queryByTag")
+    @ResponseBody
+    public List<Article> queryByTag(String tag){
+        return articleRepository.findByTag(tag);
     }
 }
